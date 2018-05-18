@@ -100,28 +100,31 @@
 
 <script>
 
-    const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
-    
-    let lastChecked;
+      const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
 
-    function handleCheck(e) {
-      // ser om shiftknappen er nede og om punket er sjekket
-      let inBetween = false;
-      if (e.shiftKey && this.checked) {
-        // hvis så kan vi fortsette
-        // lager loop som sjekker checkboxer
-        checkboxes.forEach(checkbox => {
-          console.log(checkbox);
-        });
+      let lastChecked;
+
+      function handleCheck(e) {
+        // ser om shiftknappen er nede og om punket er sjekket
+        let inBetween = false;
+        if (e.shiftKey && this.checked) {
+          // hvis så kan vi fortsette
+          // lager loop som sjekker checkboxer
+          checkboxes.forEach(checkbox => {
+            if (checkbox === this || checkbox === lastChecked) {
+              inBetween = !inBetween;
+            }
+            if (inBetween) {
+              checkbox.checked = true;
+            }
+          });
+        }
+
+        lastChecked = this;
       }
 
-      lastChecked = this;
-    }
-
-
-  checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
+      checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
   
-
 </script>
 </body>
 </html>
