@@ -1,4 +1,4 @@
-# Fun with canvas
+# Hold shift to check multiple checkboxes
 
 JS Exercises. 10th challenge of the #JavaScript30 course. Using JS to create selection of several chekcboxes when shift is pushed down while selecting checkboxes.
 
